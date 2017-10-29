@@ -11,14 +11,12 @@ namespace WordCounter
     {
         static void Main(string[] args)
         {
-            string text = ReadFileToEnd(@"..\..\FileTxt.txt");
+            string text = ReadFileToEnd(@"..\..\..\FileTxt.txt");
 
             ShowWordCount(
                 GetWordGroups(
                     GetAllWords(text, GetSeparators(text))));
         }
-
-       
 
         static string ReadFileToEnd(string pathToFile)
         {
@@ -29,6 +27,7 @@ namespace WordCounter
             var separatorList = text.Where(Char.IsPunctuation).Distinct().ToList();
             separatorList.Add('\n');
             separatorList.Add(' ');
+            separatorList.Add('c');
 
             if (separatorList.Contains('#'))
             {
